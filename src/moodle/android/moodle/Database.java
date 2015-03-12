@@ -150,7 +150,7 @@ public class Database extends ListActivity implements OnClickListener {
 	    	
 	    	
 		}else{
-			Toast.makeText(getApplicationContext(), "There are no files downloaded", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "没有找到已下载的文件！", Toast.LENGTH_LONG).show();
   		
 		}
 	  
