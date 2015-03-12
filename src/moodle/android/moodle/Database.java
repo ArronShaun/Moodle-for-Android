@@ -22,6 +22,8 @@
  * 
  * http://www.vogella.com/articles/AndroidSQLite/article.html
  */
+ 
+ // modified by Shaun at 3-12-2015
 
 package moodle.android.moodle;
 
@@ -183,7 +185,7 @@ public class Database extends ListActivity implements OnClickListener {
 			  } catch (android.content.ActivityNotFoundException e) { 
 					Log.e("MIME Error", e.toString()+" default program for this filetype not found");
 					// Raise on activity not found  
-			      Toast.makeText(Database.this, "A suitable Application to access the file " + mimeType +" not found.", 4000).show(); 
+			      Toast.makeText(Database.this, "抱歉！找不到可以打开" + mimeType + "类型文件的应用程序", 4000).show(); 
 			  } 
 			}
 		
@@ -210,7 +212,7 @@ public class Database extends ListActivity implements OnClickListener {
 			File sdCard = Environment.getExternalStorageDirectory();
 	    	
 			String temp = user.getCourse(user.getSelectedCourseId()).getFullname();
-	    	
+	    	// In facts, sdCard can be not found. There's a exception to handle
 	    	File moodle = new File(sdCard, "Moodle/" + temp + "/Documents");
 	    	
 	    	int i =0;
@@ -231,7 +233,7 @@ public class Database extends ListActivity implements OnClickListener {
 			    }
 	    	}
 		}else{
-			Toast.makeText(getApplicationContext(), "There are no files downloaded", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "没有已经下载好的文件！", Toast.LENGTH_LONG).show();
     		
 		}
     	
