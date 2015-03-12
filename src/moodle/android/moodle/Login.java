@@ -110,7 +110,7 @@ public class Login extends Activity implements OnClickListener {
 				//this dialog box needs to be run separately....
 				
 				dialog = ProgressDialog.show(this, "", 
-		                "Logging in, please wait", true);
+		                "正在登陆，请稍后...", true);
 				
 				/*new Thread(new Runnable(){
         		public void run(){
@@ -119,13 +119,13 @@ public class Login extends Activity implements OnClickListener {
 				if (AppStatus.getInstance(Login.this).isOnline(Login.this)) {  
 					String conType = AppStatus.getInstance(Login.this).getConnectionType(Login.this);
 					conType = conType == null ? "Unknown" : conType;
-					Toast.makeText(getApplicationContext(), "You are online (" + conType + ")!!!!", Toast.LENGTH_LONG).show(); 
+					Toast.makeText(getApplicationContext(), "您已经以" + conType + "身份登陆成功！", Toast.LENGTH_LONG).show(); 
 	        	 	
 					
 	        	} else {     
 	        		messageHandler.sendEmptyMessage(0);
 	        		
-	        		Toast.makeText(getApplicationContext(), "You are not online!!!!", Toast.LENGTH_LONG).show();
+	        		Toast.makeText(getApplicationContext(), "您没有成功登陆！", Toast.LENGTH_LONG).show();
 	        		// enter details for offline access to some files. Restore the database.
 	        		
 	        	} 
