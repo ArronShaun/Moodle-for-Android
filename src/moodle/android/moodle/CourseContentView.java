@@ -18,6 +18,9 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>
 */
 
+// added by Shaun
+// redundant code found on checking MIME files opening possibility
+
 package moodle.android.moodle;
 
 import java.io.File;
@@ -179,6 +182,7 @@ public class CourseContentView extends Activity implements OnClickListener {
     		if (documentArray != null && documentArray.length > 0) {
 	    		arrayAdapter = new StandardArrayAdapter(this, documentArray);
 	    		sectionAdapter = new SectionListAdapter(getLayoutInflater(), arrayAdapter);
+	    		// using reflection in Java
 	    		listView = (SectionListView)findViewById(getResources().getIdentifier("document_section_list_view", "id", this.getClass().getPackage().getName()));
 	    		listView.setAdapter(sectionAdapter);
 	    		
@@ -215,11 +219,11 @@ public class CourseContentView extends Activity implements OnClickListener {
 		    	                } catch (android.content.ActivityNotFoundException e) { 
 		    						Log.e("MIME Error", e.toString()+" default program for this filetype not found");
 		    						// Raise on activity not found  
-		    	                    Toast.makeText(CourseContentView.this, "A suitable Application to access the file " + mimeType +" not found.", 4000).show(); 
+		    	                    Toast.makeText(CourseContentView.this, "找不到应用程序来打开" + mimeType +"类型的文件.", 4000).show(); 
 		    	                } 
     						}
     						else {
-    							Toast.makeText(CourseContentView.this, "There is no SD Card installed to save the file to. Please insert to view the file.", 4000).show();
+    							Toast.makeText(CourseContentView.this, "您的手机未插入SD卡，或者您的SD卡正在被所连接的其他设备占用！", 4000).show();
     						}
 	    				}
 	    			}
